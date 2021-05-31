@@ -745,7 +745,7 @@ img
 }
 .about-section .skills .skill-item .progress-bar
 {
-    background-color: var(--text-black-600);
+    background-color: var(--skin-color);
     height: 6px;
     left: 7px;
     top: 7px;
@@ -1507,4 +1507,30 @@ img
     max-width: 100%;
     text-align: right;
     padding: 0 15px;
+}
+/* Audio */  /* Audio */  /* Audio */
+/* Audio */  /* Audio */  /* Audio */
+/* Audio */  /* Audio */  /* Audio */
+.fa-music
+{
+    right: 15px;
+    bottom: 15px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid transparent;
+    z-index: 1;
+    cursor: pointer;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 50%;
+}
+.fa-music.pause:after
+{
+    content: ' ';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    transform: rotate(-36deg);
+    background-color: var(--skin-color);
 }

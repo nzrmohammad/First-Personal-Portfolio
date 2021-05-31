@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Gallery, Home, About, Profile, Skill, Experience, Education, Service, Portfolio, Testimonial, Contact, Category
+from django.shortcuts import render, HttpResponse
+from .models import Gallery, Home, About, Profile, Skill, Experience, Education, Service, Portfolio, Testimonial, Contact, Category, ContactUs
 # Create your views here.
 
 def home_page(request):
@@ -29,4 +29,14 @@ def home_page(request):
         'testimonials':testimonials,
         'contact':contact
     }
+
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+        contactus = ContactUs(name=name , subject=subject, email=email, message=message)
+        contactus.save()
+
+
     return render(request, 'home.html',context)

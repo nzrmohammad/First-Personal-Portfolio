@@ -91,6 +91,7 @@ class Gallery(models.Model):
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='Portfolio/')
 
+
 class Testimonial(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='Testimonial/')
@@ -107,3 +108,12 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.email
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=35)
+    subject = models.CharField(max_length=30)
+    email = models.CharField(max_length=35)
+    message = models.TextField()
+
+    def __str__(self):
+        return "Message From" + " -----> " + self.email

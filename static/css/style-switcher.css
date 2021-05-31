@@ -27,6 +27,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 50%;
+    color: var(--skin-color);
 }
 .style-switcher .s-icon i
 {
@@ -43,6 +44,10 @@
 .style-switcher .day-night
 {
     top: 55px;
+}
+.style-switcher .audio
+{
+    top: 110px;
 }
 .style-switcher h4
 {

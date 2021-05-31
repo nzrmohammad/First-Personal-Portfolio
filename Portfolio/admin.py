@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Contact, Portfolio, Home, About, Service, Profile, Skill, Experience, Education, Testimonial, Gallery
+from .models import Category, Contact, ContactUs, Portfolio, Home, About, Service, Profile, Skill, Experience, Education, Testimonial, Gallery
 
 # Register your models here.
 admin.site.register(Home)
@@ -34,3 +34,5 @@ class GalleryAdmin(admin.ModelAdmin):
 admin.site.register(Testimonial)
 
 admin.site.register(Contact)
+
+admin.site.register(ContactUs)
