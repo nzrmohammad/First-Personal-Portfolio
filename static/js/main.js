@@ -1,6 +1,3 @@
-/* Navigation Menu */ /* Navigation Menu */ /* Navigation Menu */
-/* Navigation Menu */ /* Navigation Menu */ /* Navigation Menu */
-/* Navigation Menu */ /* Navigation Menu */ /* Navigation Menu */
 (() =>
 {
     const hamburgerBtn = document.querySelector(".hamburger-btn"),
@@ -73,9 +70,6 @@
         }
     })
 })();
-/* About Section Tabs */ /* About Section Tabs */ /* About Section Tabs */
-/* About Section Tabs */ /* About Section Tabs */ /* About Section Tabs */
-/* About Section Tabs */ /* About Section Tabs */ /* About Section Tabs */
 (() =>
 {
     const aboutSection = document.querySelector(".about-section") , tabsContainer = document.querySelector(".about-tabs");
@@ -92,9 +86,6 @@
     })
 }
 )();
-/* Portfolio Filter And Popup */ /* Portfolio Filter And Popup */ /* Portfolio Filter And Popup */
-/* Portfolio Filter And Popup */ /* Portfolio Filter And Popup */ /* Portfolio Filter And Popup */
-/* Portfolio Filter And Popup */ /* Portfolio Filter And Popup */ /* Portfolio Filter And Popup */
 function bodyScrollingToggle()
 {
     document.body.classList.toggle("hidden-scrolling");
@@ -111,7 +102,6 @@ function bodyScrollingToggle()
     projectDetailsContainer = popup.querySelector(".pp-details"),
     projectDetailsBtn = popup.querySelector(".pp-project-details-btn");
     let itemIndex, slideIndex, screenshots;
-    /* Filter Portfolio Items */
     filterContainer.addEventListener("click" ,(event)=>
     {
         if(event.target.classList.contains("filter-item") && !event.target.classList.contains("active"))
@@ -255,9 +245,6 @@ function bodyScrollingToggle()
         }
     }
 })();
-/* Testimonial Slider */ /* Testimonial Slider */ /* Testimonial Slider */
-/* Testimonial Slider */ /* Testimonial Slider */ /* Testimonial Slider */
-/* Testimonial Slider */ /* Testimonial Slider */ /* Testimonial Slider */
 (() =>
 {
     const sliderContainer = document.querySelector(".testi-slider-container"),
@@ -311,16 +298,79 @@ window.addEventListener("load", () =>
     {
         document.querySelector(".preloader").style.display="none";
     },600)
-    $(".fa-music").click(function()
+    let togglePlay = document.querySelector(".fa-music");
+    let player = document.querySelector('#myAudio');
+    togglePlay.addEventListener('click' , ()=>
     {
-        if($(this).hasClass("pause"))
-        {
-            $("#myAudio")[0].play();
-        }
-        else
-        {
-            $("#myAudio")[0].pause();
-        }
-        $(this).toggleClass("pause");
+    if (player.paused == true) 
+    {
+        player.play();
+    }
+    else
+    {
+        player.pause();
+    }
+    togglePlay.classList.toggle("pause");
+});
+});
+var Top = document.querySelector(".ScrollToTop");
+window.addEventListener("scroll", () =>
+{
+    if(window.scrollY > 120)
+    {
+        Top.style.opacity = 1;
+    }
+    else
+    {
+        Top.style.opacity = 0;
+    }
+})
+const btnScrollToTop = document.querySelector(".ScrollToTop");
+btnScrollToTop.addEventListener("click", function()
+{
+    window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"smooth"
+    });
+});
+const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+openModalButtons.forEach(button => 
+{
+    button.addEventListener('click', () => 
+    {
+    const modal = document.querySelector(button.dataset.modalTarget)
+    openModal(modal)
     })
 })
+overlay.addEventListener('click', () => 
+{
+const modals = document.querySelectorAll('.modal.active')
+modals.forEach(modal => 
+    {
+    closeModal(modal)
+    })
+})
+closeModalButtons.forEach(button => 
+{
+    button.addEventListener('click', () => 
+    {
+    const modal = button.closest('.modal')
+    closeModal(modal)
+    })
+})
+function openModal(modal) 
+{
+    if (modal == null) return
+    modal.classList.add('active')
+    overlay.classList.add('active')
+}
+function closeModal(modal) 
+{
+    if (modal == null) return
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
+}
+

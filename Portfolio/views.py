@@ -1,8 +1,10 @@
-from django.shortcuts import render, HttpResponse
+from django.http import JsonResponse
+from django.shortcuts import render
 from .models import Gallery, Home, About, Profile, Skill, Experience, Education, Service, Portfolio, Testimonial, Contact, Category, ContactUs
-# Create your views here.
+from .forms import ContactUsForm
 
 def home_page(request):
+    form = ContactUsForm()
     home = Home.objects.latest('updated')
     about = About.objects.latest('updated')
     profiles = Profile.objects.filter(about=about)
@@ -11,8 +13,8 @@ def home_page(request):
     educations = Education.objects.all()
     services = Service.objects.all()
     categories = Category.objects.filter()
-    portfolios = Portfolio.objects.all()
-    galleries = Gallery.objects.filter(portfolio=portfolios)
+    portfolio = Portfolio.objects.all()
+    galleries = Gallery.objects.filter(portfolio=portfolio)
     testimonials = Testimonial.objects.all()
     contact = Contact.objects.latest('updated')
     context = {
@@ -24,19 +26,19 @@ def home_page(request):
         'educations':educations,
         'services':services,
         'categories':categories,
-        'portfolios':portfolios,
+        'portfolios':portfolio,
         'galleries':galleries,
         'testimonials':testimonials,
-        'contact':contact
+        'contact':contact,
+        'form':ContactUsForm
     }
 
-    if request.method == "POST":
-        name = request.POST['name']
-        email = request.POST['email']
-        subject = request.POST['subject']
-        message = request.POST['message']
-        contactus = ContactUs(name=name , subject=subject, email=email, message=message)
-        contactus.save()
-
+    if request.is_ajax():
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'msg':'Success'})
+        else:
+            return JsonResponse({'msg':'Error'})
 
     return render(request, 'home.html',context)
