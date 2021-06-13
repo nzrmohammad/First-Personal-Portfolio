@@ -5,9 +5,11 @@
         flex: 0 0 50%;
         max-width: 50%;
     }
+    .home-section .home-text h2
+    {
+        font-size: 50px;
+    }
 }
-
-
 @media(max-width: 767px)
 {
     .home-section .home-text, .home-section .home-img, .about-section .about-info, .about-section .about-img,
@@ -33,6 +35,10 @@
     {
         margin-bottom: 40px;
         max-width: 350px;
+    }
+    .home-section .home-text h2
+    {
+        font-size: 40px;
     }
     .effect-3
     {
@@ -87,14 +93,73 @@
         right: auto;
     }
 }
-@media(max-width: 574px)
+@media(max-width: 766px)
 {
     .home-section .home-img .img-box
     {
-        max-width: 260px;
+        max-width: 77%;
+    }
+    .effect-2
+    {
+        bottom: 95px;
+    }
+    .effect-3
+    {
+        margin-left: -95px;
+    }
+    .effect-4
+    {
+        left: 9%;
+    }
+    .effect-5
+    {
+        top: 41%;
+    }
+}
+@media(max-width: 500px)
+{
+    .home-section .home-img .img-box
+    {
+        max-width: 73%;
+    }
+    .testimonial-section .testi-item i
+    {
+        font-size: 22px;
+    }
+    .ScrollToTop
+    {
+        top: 92%;
+    }
+    .nav-menu .copyright-text
+    {
+        font-size: 16px;
+        left: -60px;
+    }
+    .effect-2
+    {
+        bottom: 95px;
+    }
+    .effect-3
+    {
+        margin-left: -95px;
+    }
+    .effect-4
+    {
+        left: 9%;
+    }
+    .effect-5
+    {
+        top: 40%;
+    }
+}
+@media(max-width: 400px)
+{
+    .home-section .home-img .img-box
+    {
+        max-width: 69%;
     }
     .home-section .home-text h2
     {
-       font-size: 40px;
+        font-size: 35px;
     }
 }

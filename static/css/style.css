@@ -639,7 +639,7 @@ img
     font-size: 16px;
     text-align: center;
     color: var(--text-black-600);
-    margin: 0 4px;
+    margin: 5px 3px;
     border-radius: 50%;
     transition: all 0.3s ease;
 }
