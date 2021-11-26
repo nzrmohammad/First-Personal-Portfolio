@@ -667,6 +667,7 @@ img
     line-height: 26px;
     margin-bottom: 15px;
     color: var(--text-black-600);
+    text-align: justify;
 }
 .about-section .about-info span
 {
@@ -1379,6 +1380,7 @@ img
     line-height: 26px;
     color: var(--text-black-600);
     margin:0 0 30px;
+	padding-top: 30px;
     text-align: justify;
 }
 .testimonial-section .testi-item img
